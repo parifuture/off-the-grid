@@ -1,0 +1,40 @@
+Off the Grid Code Sim
+
+Background:
+You've been attending the Off The Grid food truck festival every Friday for the last few months.
+In order to better optimize your experience, you've been tracking wait times, cost, and tastiness
+of the food you've tried from week to week. (You don't try the same set of foods each week.) For simplicity assume that each stand sells only one
+dish and that the dish hasn't changed over time.
+
+
+Objective:
+Write a program that analyzes and makes predictions using the food truck data. Choose whatever
+language you like to produce a solution to all three milestones in an hour.
+
+
+Hints:
+-- This is an open-book simulation; feel free to use the internet and to ask for help.
+-- There are multiple ways to solve each milestone. Especially for milestone 3, choose the best
+   (i.e. approximate or exact) solution you can implement in the time remaining.
+-- Exception handling, formatting and documentation are all secondary to creating a working solution.
+
+
+Input Data:
+You are provided a CSV, OffTheGridData.csv, in the following format:
+Stand Number, Week Number, Price (Dollars), Wait Time (Minutes), Tastiness (1-10)
+
+
+Milestones:
+
+1) How much money have you spent in total at Off the Grid?
+
+2) What stand had the biggest increase in wait times between two sequential visits? Over what weeks did this
+   occur and what was the increase?
+
+3) Given the following time constraints, produce a list of stands to visit that maximizes tastiness.
+   Assume that you will wait the mean time and receive mean tastiness from each stand. Output a
+   set of stands to visit, total time used, and total tastiness acquired. You cannot visit the same
+   stand more than once in each situation.
+
+	a) You have no plans for the evening, and have 45 minutes to get food.
+	b) You are going to a really good movie after Off the Grid. You have only 20 minutes.
