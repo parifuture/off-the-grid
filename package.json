@@ -13,6 +13,9 @@
   "author": "Parik Tiwari",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "csvtojson": "^2.0.8",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "mathjs": "^5.1.2"
   }
 }

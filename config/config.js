@@ -5,7 +5,7 @@ const config = {
       host: 'localhost',
       port: '3000',
     },
-    csv: 'data/OffTheGridData.csv'
+    csvFilePath: '/Users/parikshit/code/off-the-grid/data/OffTheGridData.csv'
 };
   
 module.exports = config;
