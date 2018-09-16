@@ -33,8 +33,9 @@ router.get('/popular/truck/', (req, res) => {
   });
 });
 
-router.get('/popular/truck/', (req, res) => {
-  grid.getStandRecommendationByWaitTime()
+router.get('/recommendation/bytime/:time', (req, res) => {
+  const timeInMin = req.params.time ? req.params.time : null;
+  grid.getStandRecommendationByTime(timeInMin)
   .then(response => {
     res.json(response)
   })
