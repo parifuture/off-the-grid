@@ -6,15 +6,6 @@ const math = require('mathjs');
 const grid = {
     config: config.csv,
     gridData: [],
-    // csvDataModel: [
-    //     {
-    //         // standNumber,
-    //         // weekNumber,
-    //         // price,
-    //         // waitTime,
-    //         // tastiness
-    //     }
-    // ]
 };
 
 grid.getCsvData = function() {
@@ -159,31 +150,31 @@ grid.getStandRecommendationByTime = function (timeLimit=45) {
             // ];
 
             //test Data 3
-            newGridData = [
-                {standNumber: "0", waitTime: 5, tastiness: 6},
-                {standNumber: "1", waitTime: 11, tastiness: 7},
-                {standNumber: "2", waitTime: 8, tastiness: 3},
-                {standNumber: "3", waitTime: 12, tastiness: 5},
-                {standNumber: "4", waitTime: 16, tastiness: 4},
-                {standNumber: "5", waitTime: 14, tastiness: 7},
-                {standNumber: "6", waitTime: 14, tastiness: 5},
-                {standNumber: "7", waitTime: 7, tastiness: 7},
-                {standNumber: "8", waitTime: 11, tastiness: 6},
-                {standNumber: "9", waitTime: 10, tastiness: 7},
-                {standNumber: "10", waitTime: 13, tastiness: 5},
-                {standNumber: "11", waitTime: 16, tastiness: 5},
-                {standNumber: "12", waitTime: 16, tastiness: 6},
-                {standNumber: "13", waitTime: 24, tastiness: 7},
-                {standNumber: "14", waitTime: 10, tastiness: 6},
-                {standNumber: "15", waitTime: 8, tastiness: 7},
-                {standNumber: "16", waitTime: 6, tastiness: 4},
-                {standNumber: "17", waitTime: 13, tastiness: 7},
-                {standNumber: "18", waitTime: 19, tastiness: 6},
-                {standNumber: "19", waitTime: 4, tastiness: 4},
-                {standNumber: "20", waitTime: 16, tastiness: 7},
-                {standNumber: "21", waitTime: 7, tastiness: 7},
-                {standNumber: "22", waitTime: 10, tastiness: 4}
-            ]
+            // newGridData = [
+            //     {standNumber: "0", waitTime: 5, tastiness: 6},
+            //     {standNumber: "1", waitTime: 11, tastiness: 7},
+            //     {standNumber: "2", waitTime: 8, tastiness: 3},
+            //     {standNumber: "3", waitTime: 12, tastiness: 5},
+            //     {standNumber: "4", waitTime: 16, tastiness: 4},
+            //     {standNumber: "5", waitTime: 14, tastiness: 7},
+            //     {standNumber: "6", waitTime: 14, tastiness: 5},
+            //     {standNumber: "7", waitTime: 7, tastiness: 7},
+            //     {standNumber: "8", waitTime: 11, tastiness: 6},
+            //     {standNumber: "9", waitTime: 10, tastiness: 7},
+            //     {standNumber: "10", waitTime: 13, tastiness: 5},
+            //     {standNumber: "11", waitTime: 16, tastiness: 5},
+            //     {standNumber: "12", waitTime: 16, tastiness: 6},
+            //     {standNumber: "13", waitTime: 24, tastiness: 7},
+            //     {standNumber: "14", waitTime: 10, tastiness: 6},
+            //     {standNumber: "15", waitTime: 8, tastiness: 7},
+            //     {standNumber: "16", waitTime: 6, tastiness: 4},
+            //     {standNumber: "17", waitTime: 13, tastiness: 7},
+            //     {standNumber: "18", waitTime: 19, tastiness: 6},
+            //     {standNumber: "19", waitTime: 4, tastiness: 4},
+            //     {standNumber: "20", waitTime: 16, tastiness: 7},
+            //     {standNumber: "21", waitTime: 7, tastiness: 7},
+            //     {standNumber: "22", waitTime: 10, tastiness: 4}
+            // ]
 
             let gridVendorArrayLength = newGridData.length;
             vendorObj = {
