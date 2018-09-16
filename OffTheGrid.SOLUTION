@@ -1,0 +1,39 @@
+# Off the Grid Code Solution
+
+The solution took me approximately two hours to complete. Please view this file on the [online markdown editor](https://dillinger.io/) for better understanding! 
+
+# Notes:
+
+- The solution is created as a basic rest API's 
+- All the three solutions have three specific end points
+- For Milestone three question, we are calculating the mean by the provided data, and rounding the mean to nearest integer for simplicity
+
+### Installation
+
+I am running [Node.js](https://nodejs.org/) v10.7.0.
+
+Unzip the folder off-the-grid
+
+Install the dependencies and devDependencies and start the server.
+
+```sh
+$ cd off-the-grid
+$ npm i
+$ node app
+```
+
+### Solution
+As mentioned the solution is three different API calls. Please make sure that the node server is running. Open a new terminal and run the following commands to get the final output
+
+- Milestone 1 Solution: curl -X GET http://localhost:3000/api/money/spent/ 
+- Milestone 2 Solution: curl -X GET http://localhost:3000/api/popular/truck/
+- Milestone 3 Solution: curl -X GET http://localhost:3000/api/recommendation/bytime/:time
+- Example 
+    3a) http://localhost:3000/api/recommendation/bytime/45
+    3b) http://localhost:3000/api/recommendation/bytime/20
+
+```sh
+$ curl -X GET http://localhost:3000/api/money/spent/
+$ curl -X GET http://localhost:3000/api/popular/truck/
+$ curl -X GET http://localhost:3000/api/recommendation/bytime/:time
+```

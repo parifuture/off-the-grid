@@ -30,3 +30,5 @@ const nodeport = config.server.port;
 app.set('port', (process.env.PORT || nodeport));
 
 app.listen(nodeport);
+
+console.log("wonderful the server has successfully started on port 3000!");

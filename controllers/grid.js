@@ -47,9 +47,6 @@ grid.totalMoneySpent = function () {
             };
             resolve(response);
         })
-        .error((err) => {
-            reject(err);
-        })
     });
 }
 
@@ -91,9 +88,6 @@ grid.mostPopularStandByWaitTime = function () {
                 maxWaitTimeIncreased: maxWaitTime.waitTime
             };
             resolve(response);
-        })
-        .error((err) => {
-            reject(err);
         })
     });
 }
@@ -164,6 +158,33 @@ grid.getStandRecommendationByTime = function (timeLimit=45) {
             //     {standNumber: "4", waitTime: 15, tastiness: 4}
             // ];
 
+            //test Data 3
+            newGridData = [
+                {standNumber: "0", waitTime: 5, tastiness: 6},
+                {standNumber: "1", waitTime: 11, tastiness: 7},
+                {standNumber: "2", waitTime: 8, tastiness: 3},
+                {standNumber: "3", waitTime: 12, tastiness: 5},
+                {standNumber: "4", waitTime: 16, tastiness: 4},
+                {standNumber: "5", waitTime: 14, tastiness: 7},
+                {standNumber: "6", waitTime: 14, tastiness: 5},
+                {standNumber: "7", waitTime: 7, tastiness: 7},
+                {standNumber: "8", waitTime: 11, tastiness: 6},
+                {standNumber: "9", waitTime: 10, tastiness: 7},
+                {standNumber: "10", waitTime: 13, tastiness: 5},
+                {standNumber: "11", waitTime: 16, tastiness: 5},
+                {standNumber: "12", waitTime: 16, tastiness: 6},
+                {standNumber: "13", waitTime: 24, tastiness: 7},
+                {standNumber: "14", waitTime: 10, tastiness: 6},
+                {standNumber: "15", waitTime: 8, tastiness: 7},
+                {standNumber: "16", waitTime: 6, tastiness: 4},
+                {standNumber: "17", waitTime: 13, tastiness: 7},
+                {standNumber: "18", waitTime: 19, tastiness: 6},
+                {standNumber: "19", waitTime: 4, tastiness: 4},
+                {standNumber: "20", waitTime: 16, tastiness: 7},
+                {standNumber: "21", waitTime: 7, tastiness: 7},
+                {standNumber: "22", waitTime: 10, tastiness: 4}
+            ]
+
             let gridVendorArrayLength = newGridData.length;
             vendorObj = {
                 standNumber: [],
@@ -174,6 +195,7 @@ grid.getStandRecommendationByTime = function (timeLimit=45) {
             let resultList = [];
             let flag = true;
             let currentWaitTime = newGridData[0].waitTime;
+            let counter = 0;
 
             while(start <= end && end <= gridVendorArrayLength) {
                 if(currentWaitTime <= timeLimit) {
@@ -196,10 +218,18 @@ grid.getStandRecommendationByTime = function (timeLimit=45) {
                     vendorObj["standNumber"].pop();
                     vendorObj.waitTime -= newGridData[end-1].waitTime;
                     vendorObj.tastiness -= newGridData[end-1].tastiness;
-                    resultList.push(vendorObj);
+                    if(resultList.length === 0) {
+                        resultList.push(vendorObj);
+                    } else {
+                        if(resultList[0].tastiness < vendorObj.tastiness) {
+                            resultList.pop();
+                            resultList.push(vendorObj);
+                        }
+                    }
                     if(vendorObj["standNumber"].length > 1) {
                         end--;
                     }
+
                     vendorObj = {
                         standNumber: [],
                         waitTime: 0,
@@ -210,10 +240,20 @@ grid.getStandRecommendationByTime = function (timeLimit=45) {
                         end = start + 1;
                     } else {
                         currentWaitTime = newGridData[start].waitTime;
+                        if(currentWaitTime > timeLimit) {
+                            currentWaitTime = newGridData[start++].waitTime;
+                            end = start + 1;
+                        }
                     }
                     
                     flag = true;
                 }
+                // counter to see how many times the loop was getting executed
+                // heled in finding edge conditions
+                // counter++;
+                // if(counter%1000 === 0) {
+                //     console.log("counter",counter);
+                // }
             }
             let response = {
                 standNumbers: resultList[0].standNumber,
@@ -221,13 +261,6 @@ grid.getStandRecommendationByTime = function (timeLimit=45) {
                 totalTastinessAcquired: resultList[0].tastiness
             };
 
-            resultList.map(function(result) {
-                if(result.tastiness > response.totalTastinessAcquired) {
-                        response.standNumbers = result.standNumber;
-                        response.totalTimeUsed = result.waitTime;
-                        response.totalTastinessAcquired = result.tastiness;
-                }
-            });
             resolve(response);
         })
     });

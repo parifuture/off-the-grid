@@ -1,3 +1,4 @@
+const path = require('path');
 
 const config = {
     // server details
@@ -5,7 +6,7 @@ const config = {
       host: 'localhost',
       port: '3000',
     },
-    csvFilePath: '/Users/parikshit/code/off-the-grid/data/OffTheGridData.csv'
+    csvFilePath: path.resolve(__dirname,'../data/OffTheGridData.csv')
 };
   
 module.exports = config;
